@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Test</title>
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container" id="resultado"></div>
+        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpCn6XQNn0bVFmpe7XeXKZtIhFM6RBMhk&callback=initMap"  type="text/javascript"></script>
+ <script>
+    var map;
+    function initMap() {
+            map = new google.maps.Map(document.getElementById('test-map'), {
+                center: {lat: -16.408497, lng: -71.536951},
+                zoom: 15
+            });
+            var locations =  [
+            {"latitud":"-16.3988080000","longitud":"-71.5369110000","nombre":"El Buda Profano","urllogo":"el-buda-profano.jpeg","direccion":"Calle Bolivar 425, Cercado, Arequipa"},
+            {"latitud":"-16.3988080000","longitud":"-71.5369110000","nombre":"INDIA Indian Cuisine","urllogo":"india-indian-cuisine.jpeg","direccion":"Calle Bolivar 502, Arequipa"},
+            {"latitud":"-16.3988080000","longitud":"-71.5369110000","nombre":"Restaurante Zingaro","urllogo":"restaurante-zingaro.jpeg","direccion":"San Francisco 309 Arequipa"},
+            {"latitud":"-16.3961150000","longitud":"-71.5365080000","nombre":"Chicha por Gaston Acurio","urllogo":"chicha-por-gaston-acurio.jpeg","direccion":"Santa Catalina 210, Arequipa"},
+            {"latitud":"-16.3953120300","longitud":"-71.5354593000","nombre":"Zig Zag restaurant","urllogo":"zig-zag-restaurant.jpeg","direccion":"Calle Zela 210-212"},
+            {"latitud":"-16.3869318500","longitud":"-71.5394708900","nombre":"La Nueva Palomino","urllogo":"la-nueva-palomino.jpeg","direccion":"Leoncio Prado 122"},
+            {"latitud":"-16.4170058100","longitud":"-71.5269398700","nombre":"Picanter\u00eda Tradici\u00f3n Arequipe\u00f1a","urllogo":"picanteria-tipica-tradicion-arequipena-2019.jpeg","direccion":"Av. Dolores 111"},
+            {"latitud":"-16.3988080000","longitud":"-71.5369110000","nombre":"El Ekeko","urllogo":"el-ekeko.jpeg","direccion":"Calle Mercaderes 141, Arequipa"},
+            {"latitud":"-16.3916244000","longitud":"-71.5395560000","nombre":"Casta Fior","urllogo":"casta-fior.png","direccion":"Francisco Bolognesi 106, Arequipa"},
+            {"latitud":"-16.3988080000","longitud":"-71.5369110000","nombre":"La Casona del Pisco","urllogo":"la-casona-del-pisco.jpeg","direccion":"San Francisco 319, Cercado"},
+            {"latitud":"-16.3968790000","longitud":"-71.5367970000","nombre":"Museo del Pisco AQP","urllogo":"museo-del-pisco-aqp-peru.png","direccion":"Moral 229, Arequipa"},
+            {"latitud":"-16.4114170000","longitud":"-71.5199440000","nombre":"Roca Constructora","urllogo":"roca-constructora-arequipa.jpeg","direccion":"Urb. La Cantuta A9 2do piso Of.201 - J.L.B. y Rivero - Arequipa"},
+            {"latitud":"-16.3924830000","longitud":"-71.5300310000","nombre":"Picanteria la Mundial","urllogo":"picanteria-la-mundial.jpeg","direccion":"Lucas Poblete 211, Arequipa 05154"},
+            {"latitud":"-16.3985570000","longitud":"-71.5377880000","nombre":"Sonccollay","urllogo":"sonccollay.jpeg","direccion":"Portal de San Agust\u00edn 149, altos, Terraza de la Plaza de Armas"},
+            {"latitud":"-16.3932858100","longitud":"-71.5337319300","nombre":"Arthur Restaurant","urllogo":"arthur-restaurant.jpeg","direccion":"Plaza Campo Redondo,  Pasaje Violin 102, San L\u00e1zaro"},
+            {"latitud":"-16.3998170000","longitud":"-71.5310670000","nombre":"Any Rios Das Video","urllogo":"any-rios-das-video-aqp.jpeg","direccion":"Centro Comercial La Gran Via 234"},
+            {"latitud":"-16.4132160000","longitud":"-71.5281150000","nombre":"Chef Parrillero Grill","urllogo":"chef-parrillero-grill.jpeg","direccion":"Urb. Los Rosales B-2, Dolores"},
+            {"latitud":"-16.3988080000","longitud":"-71.5369110000","nombre":"Giardino Tour Operator","urllogo":"giardino-tour-operator.jpeg","direccion":"Calle Jerusal\u00e9n 604A, Arequipa"},
+            {"latitud":"-16.4013210000","longitud":"-71.5699840000","nombre":"I.C. DISCOVER PERU","urllogo":"ic-discover-peru.jpeg","direccion":"Urbanizaci\u00f3n Jos\u00e9 Santos Atahualpa Mz. i \u2013 1. Cerro Colorado,"},
+            {"latitud":"-16.3988080000","longitud":"-71.5369110000","nombre":"4M TRANSPORTE TUR\u00cdSTICO","urllogo":"4m-transporte-turistico.jpeg","direccion":"Calle La Merced 125, Galer\u00edas Unicentro, oficina #111"},
+            {"latitud":"-16.3988080000","longitud":"-71.5369110000","nombre":"CLINICA  SANNA","urllogo":"sanna.jpeg","direccion":"Bolognesi 134"},
+            {"latitud":"-16.3921222500","longitud":"-71.5399897300","nombre":"Cl\u00ednica Arequipa","urllogo":"clinica-arequipa.jpeg","direccion":"Esquina Puente Grau con Av, Bolognesi S\/N"},
+            {"latitud":"-16.3988080000","longitud":"-71.5369110000","nombre":"Clinica Internacional, Medicentro Arequipa","urllogo":"clinica-internacional-medicentro-arequipa.jpeg","direccion":"Av. Porongoche 500"},
+            {"latitud":"-16.4176610000","longitud":"-71.5158960000","nombre":"Doctor Muelita","urllogo":"doctor-muelita.jpeg","direccion":"Av. Porongoche 518, 2do piso, Arequipa, Per\u00fa"},
+            {"latitud":"-16.3988080000","longitud":"-71.5369110000","nombre":"Cl\u00ednica Monte Carmelo","urllogo":"clinica-monte-carmelo.jpeg","direccion":"Gomez De La Torre 119"},
+            {"latitud":"-16.3988080000","longitud":"-71.5369110000","nombre":"Idealix Clinica Dental","urllogo":"idealix-clinica-dental.jpeg","direccion":"Edificio Nasya I. Oficina, 411, Av. Ejercito 101"},
+            {"latitud":"-16.3683210000","longitud":"-71.5648980000","nombre":"Palomitas Yolita","urllogo":"admin.jpeg","direccion":"200 Av. Primavera"}];
+            $.each(locations, function(key, data) {
+                var latLng = new google.maps.LatLng(data.latitud, data.longitud);
+                var marker = new google.maps.Marker({
+                    position: latLng,
+                    map: map,      
+                    icon: "http://macanudomarketing.com/mapasprueba/logos/"+data.urllogo,
+                    title: data.nombre
+                });
+                marker.setMap(map)
+               contentString = " <img src='http://macanudomarketing.com/mapasprueba/logos/"+data.urllogo+"' width='100' class='mx-auto d-block rounded-pill' /> <p>"+data.nombre+"</p>";
+
+        marker.infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        /*google.maps.event.addListener(marker, 'click', function(){
+            window.location.href = "http://macanudomarketing.com/mapasprueba/logos/"+data.slug
+        });*/
+        google.maps.event.addListener(marker, 'mouseover', function(){
+            this.infowindow.open(map,this);
+        });
+        google.maps.event.addListener(marker, 'mouseout', function() {
+            this.infowindow.close();
+        });
+            });
+    } 
+    
+</script>
+<div class="container">
+    <div class="row">
+    <div id="test-map">MAPA</div>
+    </div>
+</div>
+
+<style>
+    #test-map{
+        background: black;
+        height: 500px;
+        width: 800px;
+    }
+</style>
+
+        
+</body>
+</html>
